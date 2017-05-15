@@ -19,7 +19,16 @@ Here's a list of items with which you should be familiar:
 
 Make a cheat sheet for yourself: a list of at least **ten** commands and what they do.  (Use the 8 items above and add a couple of your own.)  
 
-> > REPLACE THIS TEXT WITH YOUR RESPONSE
+> > `pwd`: show current directory  
+> > `mkdir <name>`: make directory  
+> > `rmdir <name>`: delete a directory  
+> > `touch <name>`: create an empty file  
+> > `rm <name>`: delete a file  
+> > `mv <name1> <name2>`: rename a file  
+> > `ls -a`: list hidden files  
+> > `cp <file> <new directory>`: copy a file to new directory  
+> > `cd`: change directory  
+> > `cat <name>`: output contents to console  
 
 ---
 
@@ -34,7 +43,13 @@ What do the following commands do:
 `ls -t`  
 `ls -Glp`  
 
-> > REPLACE THIS TEXT WITH YOUR RESPONSE
+> > `ls`: list contents of current directory  
+> > `ls -a`: list all contents, including hidden files/directories, in current directory  
+> > `ls -l`: list contents in long format, including more details such as file/directory sizes
+> > `ls -lh`: list with sizes in a more readable format  
+> > `ls -lah`: list all contents in long format with readable file sizes  
+> > `ls -t`: list, sorting by time modified  
+> > `ls -Glp`: prints contents in long format, without owner names, appending slashes to any directories
 
 ---
 
@@ -42,7 +57,11 @@ What do the following commands do:
 
 Explore these other [ls options](http://www.techonthenet.com/unix/basic/ls.php) and pick 5 of your favorites:
 
-> > REPLACE THIS TEXT WITH YOUR RESPONSE
+> > `ls -d`: list only directories  
+> > `ls -R`: display subdirectories  
+> > `ls -c`: display by timestamp
+> > `ls -F`: flag filenames
+> > `ls -m`: display contents as a comma-separated list
 
 ---
 
@@ -50,7 +69,6 @@ Explore these other [ls options](http://www.techonthenet.com/unix/basic/ls.php) 
 
 What does `xargs` do? Give an example of how to use it.
 
-> > REPLACE THIS TEXT WITH YOUR RESPONSE
+> > Certain shell commands won't accept arbitrarily long inputs, so xargs breaks an input into several smaller sub-inputs that are processed in parallel.  
 
- 
-
+> >ex: `find . -name "*.md" | xargs grep "linear"` finds markdown files then looks for the word 'linear'
