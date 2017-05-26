@@ -1,5 +1,10 @@
-import pandas as pd
+f = open('faculty.csv', 'r')
 
-fac_pd = pd.read_csv('faculty.csv')
+w = open('emails.csv', 'w')
 
-fac_pd[' email'].to_csv('emails.csv', index=False)
+# Question 5
+for line in f:
+    professor = line.replace('\n','').split(',')
+    w.write(professor[3] + '\n')
+
+w.close()

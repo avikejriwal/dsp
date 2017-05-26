@@ -1,51 +1,59 @@
 # PLACE YOUR CODE HERE
-import pandas as pd
 import re
 
-fac_pd = pd.read_csv('faculty.csv')
+f = open('faculty.csv', 'r')
 
+data = []
 
-# Q1
+degrees = {}
 
-# stripping periods in degrees makes it a bit easier
-facultyDegrees = fac_pd[' degree'].str.replace('\.', '')
+# Question 1
+for line in f:
+    professor = line.replace('\n','').split(',')
+    data.append(professor)
+    degs = professor[1].replace('.','').split(' ')
+    for deg in degs:
+        if deg not in degrees:
+            degrees[deg] = 1
+        else:
+            degrees[deg] += 1
 
-diffDegrees = []
-#get the different types of degrees
-for deg in facultyDegrees:
-    degrees = deg.split(' ')
-    for degree in degrees:
-        if degree not in diffDegrees and degree:
-            diffDegrees.append(degree)
+print(degrees)
 
-#count for each different degree
-for degree in diffDegrees:
-    count = sum(facultyDegrees.str.contains(degree))
-    print(degree, count)
+titles = {}
+# Question 2
+for professor in data:
+    title = ' '.join(professor[2].split(' ')[:-2])
+    if title not in titles:
+        titles[title] = 1
+    else:
+        titles[title] += 1
 
-# Q2 get the titles and frequencies
-print(fac_pd.groupby(' title')[' title'].count())
+print(titles)
 
+# Question 3
+emails = []
+for professor in data:
+    emails.append(professor[3])
 
-# Q3
-text_file = open("emails.txt", "w")
+print(emails[1:])
 
-emails = fac_pd[' email']
+# Question 4:
+domains = {}
 for email in emails:
-    text_file.write(email + '  \n')
+    domain = '@' + email.split('@')[-1]
+    if domain not in domains:
+        domains[domain] = 1
+    else:
+        domains[domain] += 1
 
-text_file.close()
+print(domains)
 
-# Q4: get unique email domains
-domains = []
-for email in emails:
-    domain = '@' + '.'.join(re.split('[.@]', email)[1:])
-    domains.append(domain)
+# Question 5
 
-domains = list(set(domains))
+w = open('emails.csv', 'w')
 
-for domain in domains:
-    count = sum(emails.str.contains(domain))
-    print(domain, count)
+for email in emails[1:]:
+    w.write(email + '\n')
 
-# Q5
+w.close()
