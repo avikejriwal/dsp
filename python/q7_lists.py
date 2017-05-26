@@ -15,8 +15,8 @@ def match_ends(words):
     >>> match_ends(['aaa', 'be', 'abc', 'hello'])
     1
     """
-    return len(list(filter(lambda x: x[0] == x[-1] and len(x) >=2, words)))
-    raise NotImplementedError
+    filterLen = list(filter(lambda x: len(x) >= 2, words))
+    return len(list(filter(lambda x: x[0] == x[-1], filterLen)))
 
 
 def front_x(words):
@@ -73,7 +73,7 @@ def remove_adjacent(nums):
     >>> remove_adjacent([])
     []
     """
-    vals = list(filter(lambda x: nums[x] != nums[x+1] or nums[x] != nums[(x-1)%len(nums)], range(len(nums)-1)))
+    vals = list(filter(lambda x: (nums[x] != nums[x-1]) or x == 0, range(len(nums))))
     return [nums[i] for i in vals]
 
     raise NotImplementedError

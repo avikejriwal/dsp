@@ -66,7 +66,7 @@ def fix_start(s):
     'donut'
     """
     firstChar = s[0]
-    return ''.join([c if c != firstChar else '*' for c in s])
+    return ''.join([s[c] if s[c] != firstChar or c == 0 else '*' for c in range(s)])
     #raise NotImplementedError
 
 
@@ -134,15 +134,11 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
-    firstNotBad = s.find('not bad')
-    if firstNotBad > -1:
-        sRet = s[:firstNotBad] + 'good' + s[firstNotBad+7:]
-    else:
-        sRet = s
-
-    return sRet
-
-    raise NotImplementedError
+    notLoc = s.find('not')
+    badLoc = s.find('bad')
+    if badLoc > notLoc:
+        return s[:notLoc] + 'good' + s[badLoc+3:]
+    return s
 
 
 def front_back(a, b):
