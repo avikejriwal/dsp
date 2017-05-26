@@ -23,6 +23,8 @@ You will need a laptop that has access to Unix operating system (Mac or Ubuntu) 
 
 ### Case for Mac over Windows
 
+![Metis logo](../img/mac2.png)
+
 **Most people use Macs. They *are* expensive, but they work really well and they have a Linux-similar operating system that lets you just get down to business.  That way, you can spend more time on data science and less time trouble-shooting.**  
 
 **The bootcamp is intense.  Spending time wrestling with compatibility stuff you really don't have to has a high opportunity cost.**  
