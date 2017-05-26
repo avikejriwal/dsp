@@ -18,7 +18,6 @@ for prof in listProf:
     else:
         dictData[lastName] = [degree, title, prof[3]]
 
-
 for key, value in dictData.items():
     print(key, value)
 
